@@ -1,0 +1,3 @@
+// Конфигурация подключения к Supabase
+const SUPABASE_URL = 'https://pbcadmscnmshsslxqssc.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBiY2FkbXNjbm1zaHNzbHhxc3NjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTkxMzYxNTIsImV4cCI6MjA3NDcxMjE1Mn0.me2pXc92g15YT4kBfm1KSH6PE4Bpvrh-OA7JJxpKtp8';
