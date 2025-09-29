@@ -1,0 +1,49 @@
+# Безопасность Apache
+
+# Перенаправление на HTTPS (раскомментируйте когда SSL будет настроен)
+# RewriteEngine On
+# RewriteCond %{HTTPS} off
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Безопасные заголовки
+<IfModule mod_headers.c>
+    # Защита от XSS
+    Header always set X-Content-Type-Options nosniff
+    Header always set X-Frame-Options DENY
+    Header always set X-XSS-Protection "1; mode=block"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    
+    # Когда HTTPS будет настроен, раскомментируйте:
+    # Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+</IfModule>
+
+# Скрытие информации о сервере
+ServerTokens Prod
+<IfModule mod_headers.c>
+    Header unset Server
+    Header unset X-Powered-By
+</IfModule>
+
+# Запрет на показ содержимого директорий
+Options -Indexes
+
+# Защита файлов конфигурации
+<FilesMatch "^\.">
+    Require all denied
+</FilesMatch>
+
+<Files ~ "(package\.json|package-lock\.json|\.env)$">
+    Require all denied
+</Files>
+
+# Ограничение размера запросов
+LimitRequestBody 52428800  # 50MB
+
+# Защита от hotlinking
+<IfModule mod_rewrite.c>
+    RewriteEngine on
+    RewriteCond %{HTTP_REFERER} !^$
+    RewriteCond %{HTTP_REFERER} !^https?://(www\.)?instrumentburgai\.store [NC]
+    RewriteRule \.(jpg|jpeg|png|gif|css|js)$ - [F]
+</IfModule>
+
