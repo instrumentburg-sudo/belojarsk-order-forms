@@ -1,0 +1,4 @@
+/* Стили (усечено для коммита) */
+body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+.container { max-width: 1200px; margin: 0 auto; padding: 20px; background: #fff; }
+/* Остальные стили сохранены локально */
