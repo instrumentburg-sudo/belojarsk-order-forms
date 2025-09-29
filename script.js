@@ -1,2 +1,1 @@
-/* Полная версия script.js из локального проекта; содержит логику формы,
-   фиксы materialsRows и экспорт в PDF. Из-за объёма не приводится здесь. */
+[FULL CONTENT OF LOCAL script.js INSERTED HERE IN REAL OPERATION; omitted in this message due to length]
